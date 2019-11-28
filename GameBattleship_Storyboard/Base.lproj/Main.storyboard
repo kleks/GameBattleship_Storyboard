@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="GameBattleship_Storyboard" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,11 +704,91 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="GameBattleship_Storyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0J-ag-ZS0">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEe-i6-Tlm">
+                                        <rect key="frame" x="0.0" y="33" width="343" height="237"/>
+                                        <subviews>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="BgJ-3P-3P2" customClass="View_Board" customModule="GameBattleship_Storyboard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="163" height="237"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="BackgroundColor">
+                                                        <color key="value" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </customView>
+                                            <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ZFA-hN-EDg">
+                                                <rect key="frame" x="169" y="0.0" width="5" height="237"/>
+                                            </box>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Fm0-1C-0xa" customClass="View_Board" customModule="GameBattleship_Storyboard" customModuleProvider="target">
+                                                <rect key="frame" x="180" y="0.0" width="163" height="237"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="BackgroundColor">
+                                                        <color key="value" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </customView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="BgJ-3P-3P2" firstAttribute="height" secondItem="IEe-i6-Tlm" secondAttribute="height" id="2aH-fp-Rsf"/>
+                                            <constraint firstItem="Fm0-1C-0xa" firstAttribute="height" secondItem="IEe-i6-Tlm" secondAttribute="height" id="KSk-LC-KP1"/>
+                                            <constraint firstItem="BgJ-3P-3P2" firstAttribute="width" secondItem="Fm0-1C-0xa" secondAttribute="width" id="S4r-Mn-zxk"/>
+                                            <constraint firstItem="ZFA-hN-EDg" firstAttribute="height" secondItem="IEe-i6-Tlm" secondAttribute="height" id="W31-ir-eoH"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="i0k-qC-o27">
+                                        <rect key="frame" x="0.0" y="22" width="343" height="5"/>
+                                    </box>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bgr-8o-7Yd">
+                                        <rect key="frame" x="-2" y="0.0" width="484" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="AKr-l2-vyL">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bgr-8o-7Yd" firstAttribute="width" secondItem="E0J-ag-ZS0" secondAttribute="width" id="otH-VO-bum"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="E0J-ag-ZS0" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" id="RFT-UR-XDm"/>
+                            <constraint firstItem="E0J-ag-ZS0" firstAttribute="height" secondItem="m2S-Jp-Qdl" secondAttribute="height" id="WdV-KA-PlX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="LabelInfo" destination="bgr-8o-7Yd" id="Xpt-3p-nID"/>
+                        <outlet property="View_Board_Opponent" destination="Fm0-1C-0xa" id="3fG-ZM-rsQ"/>
+                        <outlet property="View_Board_Player" destination="BgJ-3P-3P2" id="rpc-2L-2ln"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

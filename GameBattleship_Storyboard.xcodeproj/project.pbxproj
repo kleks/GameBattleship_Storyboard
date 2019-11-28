@@ -13,6 +13,11 @@
 		9E0BABCB238D12C20081D08F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BABC9238D12C20081D08F /* Main.storyboard */; };
 		9E0BABD7238D12C20081D08F /* GameBattleship_StoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BABD6238D12C20081D08F /* GameBattleship_StoryboardTests.swift */; };
 		9E0BABE2238D12C20081D08F /* GameBattleship_StoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BABE1238D12C20081D08F /* GameBattleship_StoryboardUITests.swift */; };
+		9E0BABF2238D1AAF0081D08F /* View_Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BABF1238D1AAF0081D08F /* View_Board.swift */; };
+		9E0BAC10238D26560081D08F /* OldMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BAC0C238D26560081D08F /* OldMain.swift */; };
+		9E0BAC11238D26560081D08F /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BAC0D238D26560081D08F /* Board.swift */; };
+		9E0BAC12238D26560081D08F /* GameBattleship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BAC0E238D26560081D08F /* GameBattleship.swift */; };
+		9E0BAC13238D26560081D08F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BAC0F238D26560081D08F /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,11 @@
 		9E0BABDD238D12C20081D08F /* GameBattleship_StoryboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameBattleship_StoryboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E0BABE1238D12C20081D08F /* GameBattleship_StoryboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBattleship_StoryboardUITests.swift; sourceTree = "<group>"; };
 		9E0BABE3238D12C20081D08F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E0BABF1238D1AAF0081D08F /* View_Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Board.swift; sourceTree = "<group>"; };
+		9E0BAC0C238D26560081D08F /* OldMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldMain.swift; sourceTree = "<group>"; };
+		9E0BAC0D238D26560081D08F /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		9E0BAC0E238D26560081D08F /* GameBattleship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBattleship.swift; sourceTree = "<group>"; };
+		9E0BAC0F238D26560081D08F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 		9E0BABB7238D12C10081D08F = {
 			isa = PBXGroup;
 			children = (
+				9E0BABF3238D23460081D08F /* GaneBattleshpi_Engine */,
 				9E0BABC2238D12C10081D08F /* GameBattleship_Storyboard */,
 				9E0BABD5238D12C20081D08F /* GameBattleship_StoryboardTests */,
 				9E0BABE0238D12C20081D08F /* GameBattleship_StoryboardUITests */,
@@ -102,6 +113,7 @@
 				9E0BABC9238D12C20081D08F /* Main.storyboard */,
 				9E0BABCC238D12C20081D08F /* Info.plist */,
 				9E0BABCD238D12C20081D08F /* GameBattleship_Storyboard.entitlements */,
+				9E0BABF1238D1AAF0081D08F /* View_Board.swift */,
 			);
 			path = GameBattleship_Storyboard;
 			sourceTree = "<group>";
@@ -122,6 +134,17 @@
 				9E0BABE3238D12C20081D08F /* Info.plist */,
 			);
 			path = GameBattleship_StoryboardUITests;
+			sourceTree = "<group>";
+		};
+		9E0BABF3238D23460081D08F /* GaneBattleshpi_Engine */ = {
+			isa = PBXGroup;
+			children = (
+				9E0BAC0D238D26560081D08F /* Board.swift */,
+				9E0BAC0F238D26560081D08F /* Extensions.swift */,
+				9E0BAC0E238D26560081D08F /* GameBattleship.swift */,
+				9E0BAC0C238D26560081D08F /* OldMain.swift */,
+			);
+			path = GaneBattleshpi_Engine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +210,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1110;
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = Sebastian;
 				TargetAttributes = {
 					9E0BABBF238D12C10081D08F = {
@@ -256,6 +279,11 @@
 			files = (
 				9E0BABC6238D12C20081D08F /* ViewController.swift in Sources */,
 				9E0BABC4238D12C20081D08F /* AppDelegate.swift in Sources */,
+				9E0BAC11238D26560081D08F /* Board.swift in Sources */,
+				9E0BAC12238D26560081D08F /* GameBattleship.swift in Sources */,
+				9E0BAC10238D26560081D08F /* OldMain.swift in Sources */,
+				9E0BABF2238D1AAF0081D08F /* View_Board.swift in Sources */,
+				9E0BAC13238D26560081D08F /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GameBattleship_Storyboard/GameBattleship_Storyboard.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = S5RLMMGU6B;
@@ -440,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GameBattleship_Storyboard/GameBattleship_Storyboard.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = S5RLMMGU6B;
