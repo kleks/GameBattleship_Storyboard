@@ -16,6 +16,17 @@ class View_Board: NSView {
     
     @IBInspectable var BackgroundColor: NSColor = NSColor.yellow
     
+    var PointTest: [NSPoint] = []
+    override func mouseDown(with event: NSEvent){
+        let point = convert(event.locationInWindow, from: nil)
+        PointTest.append(point)
+        needsDisplay = true
+        if covered {
+            print("MYSZ in window(x,y) = (\(event.locationInWindow.x),\(event.locationInWindow.y))")
+            print("MYSZ in board(x,y) = (\(point.x),\(point.y))")
+            
+        }
+    }
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
@@ -60,6 +71,10 @@ class View_Board: NSView {
                 }
             }
             
+            for p in PointTest {
+                NSColor.red.setFill()
+                NSBezierPath(ovalIn: NSRect(x: p.x-5, y: p.y-5, width: 10, height: 10)).fill()
+            }
             return
         }
         
