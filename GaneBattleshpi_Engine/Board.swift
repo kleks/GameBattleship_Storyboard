@@ -230,7 +230,7 @@ class Board {
       case .ship:
          board[rowNumber][colNumber] = .hitShip
          return true
-         break
+         //break
       case .hitEmpty, .hitShip:
          break
       }

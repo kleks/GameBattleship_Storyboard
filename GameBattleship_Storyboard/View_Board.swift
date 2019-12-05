@@ -13,18 +13,32 @@ class View_Board: NSView {
     
     var board: Board!
     var covered: Bool = true
+    var canClick: Bool = false
     
+    var fieldSize: CGFloat!
+    var boardWidth: CGFloat!
+    var boardHeight: CGFloat!
+    var rectBoard: NSRect!
+    
+    var previousDirtyRect: NSRect!
+    
+    var shotClick: ((Int, Int)->Void)!
     @IBInspectable var BackgroundColor: NSColor = NSColor.yellow
     
-    var PointTest: [NSPoint] = []
+    //    var PointTest: [NSPoint] = []
     override func mouseDown(with event: NSEvent){
-        let point = convert(event.locationInWindow, from: nil)
-        PointTest.append(point)
-        needsDisplay = true
-        if covered {
-            print("MYSZ in window(x,y) = (\(event.locationInWindow.x),\(event.locationInWindow.y))")
-            print("MYSZ in board(x,y) = (\(point.x),\(point.y))")
+        if canClick {
+            let pointInCustomView = convert(event.locationInWindow, from: nil)
+            let pointInBoard = (x: (Int)((pointInCustomView.x-rectBoard.origin.x)/fieldSize),
+                                y: (Int)((pointInCustomView.y-rectBoard.origin.y)/fieldSize))
+            //            PointTest.append(pointInCustomView)
+            needsDisplay = true
+            //            print("MYSZ in window(x,y) = (\(event.locationInWindow.x),\(event.locationInWindow.y))")
+            //            print("MYSZ in customView(x,y) = (\(pointInCustomView.x),\(pointInCustomView.y))")
+            //            print("MYSZ in board(x,y) = (\(pointInBoard.x),\(pointInBoard.y))")
             
+            canClick = false
+            shotClick(pointInBoard.x,board.Rows-1-pointInBoard.y)
         }
     }
     override func draw(_ dirtyRect: NSRect) {
@@ -34,13 +48,16 @@ class View_Board: NSView {
         BackgroundColor.setFill()
         background.fill()
         
-        let fieldSize = min((CGFloat)(dirtyRect.width)/(CGFloat)(board.Columns),
+        if dirtyRect != previousDirtyRect {
+            fieldSize = min((CGFloat)(dirtyRect.width)/(CGFloat)(board.Columns),
                             (CGFloat)(dirtyRect.height)/(CGFloat)(board.Rows))
-        let boardWidth = (CGFloat)(board.Columns) * fieldSize
-        let boardHeight = (CGFloat)(board.Rows) * fieldSize
-        let rectBoard = dirtyRect.insetBy(dx: ((CGFloat)(dirtyRect.width)-boardWidth)/2.0,
+            boardWidth = (CGFloat)(board.Columns) * fieldSize
+            boardHeight = (CGFloat)(board.Rows) * fieldSize
+            rectBoard = dirtyRect.insetBy(dx: ((CGFloat)(dirtyRect.width)-boardWidth)/2.0,
                                           dy: ((CGFloat)(dirtyRect.height)-boardHeight)/2.0)
-        
+            previousDirtyRect = dirtyRect
+            print ("resize")
+        }
         
         
         let backgroundBoard = NSBezierPath(rect: rectBoard)
@@ -71,10 +88,10 @@ class View_Board: NSView {
                 }
             }
             
-            for p in PointTest {
-                NSColor.red.setFill()
-                NSBezierPath(ovalIn: NSRect(x: p.x-5, y: p.y-5, width: 10, height: 10)).fill()
-            }
+            //            for p in PointTest {
+            //                NSColor.red.setFill()
+            //                NSBezierPath(ovalIn: NSRect(x: p.x-5, y: p.y-5, width: 10, height: 10)).fill()
+            //            }
             return
         }
         
@@ -84,7 +101,7 @@ class View_Board: NSView {
         let colorBlue = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1) //#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         let colorRed = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         let colorYellow = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
-       
+        
         var sign: NSBezierPath? = nil
         
         switch (fieldType,covered){

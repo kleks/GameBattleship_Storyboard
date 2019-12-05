@@ -35,6 +35,7 @@ class GameBattleship {
         else {
             viewBoard.board = boardOpponent
             viewBoard.covered = true
+            //viewBoard.shotClick = boardOpponent.shot
         }
     }
     func printBoards() {
@@ -67,12 +68,20 @@ class GameBattleship {
             }
         }
     }
-    public func shot(who: Who, rowName: String, colName: String)->Bool {
-        if(who == Who.player) {
-            return boardPlayer.shot(rowName: rowName, colName: colName)
+    public func shot(who: Who, rowNumber: Int, colNumber: Int)->Bool {
+        if(who == .player) {
+            return boardOpponent.shot(rowNumber: rowNumber, colNumber: colNumber)
         }
         else {
+            return boardPlayer.shot(rowNumber: rowNumber, colNumber: colNumber)
+        }
+    }
+    public func shot(who: Who, rowName: String, colName: String)->Bool {
+        if(who == .player) {
             return boardOpponent.shot(rowName: rowName, colName: colName)
+        }
+        else {
+            return boardPlayer.shot(rowName: rowName, colName: colName)
         }
     }
     
