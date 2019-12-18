@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewControllerGame: NSViewController {
 
     @IBOutlet var View_Board_Player: View_Board!
     @IBOutlet var View_Board_Opponent: View_Board!
@@ -16,7 +16,7 @@ class ViewController: NSViewController {
     
     private let rows = 10
     private let cols = 10
-    private let shipsSize = [4,3,3,2,2,2,1,1,1,1]
+    private let shipsSize = [1]//[4,3,3,2,2,2,1,1,1,1]
 
     private var myGame: GameBattleship!
     private var whoseTurn: GameBattleship.Who = .player
@@ -61,7 +61,33 @@ class ViewController: NSViewController {
         View_Board_Opponent.needsDisplay = true
         if let who = myGame.checkWhoWins() {
             print("The winner is \(who)")
+            LabelInfo.stringValue = "The winner is \(who)"
             View_Board_Opponent.canClick = false
+            
+            let alert = NSAlert()
+//            alert.addButton(withTitle: "TAK")
+//            alert.addButton(withTitle: "NIE")
+    
+//            alert.buttons[0].highlight(true)
+//            alert.buttons[1].highlight(true)
+    
+//            alert.showsSuppressionButton = true
+//            alert.suppressionButton?.title = "Czy zapamiętać ustawienia?"
+    
+            alert.messageText = "The winner is \(who)"
+    
+            let response = alert.runModal()
+    
+            //Sprawdzanie odpowiedzi - jeśli by była potrzeba
+            if response==NSApplication.ModalResponse.alertFirstButtonReturn {
+//                print("1")
+            }
+            else if response==NSApplication.ModalResponse.alertSecondButtonReturn {
+//                print("2")
+            }
+            else if response==NSApplication.ModalResponse.alertThirdButtonReturn {
+//                print("3")
+            }
         }
     }
     override var representedObject: Any? {

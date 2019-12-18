@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E0BABC4238D12C20081D08F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BABC3238D12C20081D08F /* AppDelegate.swift */; };
-		9E0BABC6238D12C20081D08F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BABC5238D12C20081D08F /* ViewController.swift */; };
+		9E0BABC6238D12C20081D08F /* ViewControllerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BABC5238D12C20081D08F /* ViewControllerGame.swift */; };
 		9E0BABC8238D12C20081D08F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BABC7238D12C20081D08F /* Assets.xcassets */; };
 		9E0BABCB238D12C20081D08F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E0BABC9238D12C20081D08F /* Main.storyboard */; };
 		9E0BABD7238D12C20081D08F /* GameBattleship_StoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BABD6238D12C20081D08F /* GameBattleship_StoryboardTests.swift */; };
@@ -18,6 +18,7 @@
 		9E0BAC11238D26560081D08F /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BAC0D238D26560081D08F /* Board.swift */; };
 		9E0BAC12238D26560081D08F /* GameBattleship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BAC0E238D26560081D08F /* GameBattleship.swift */; };
 		9E0BAC13238D26560081D08F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BAC0F238D26560081D08F /* Extensions.swift */; };
+		9E11B35E23AA105D009B1638 /* ViewControlerNewGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E11B35D23AA105D009B1638 /* ViewControlerNewGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,7 @@
 /* Begin PBXFileReference section */
 		9E0BABC0238D12C10081D08F /* GameBattleship_Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBattleship_Storyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E0BABC3238D12C20081D08F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9E0BABC5238D12C20081D08F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9E0BABC5238D12C20081D08F /* ViewControllerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGame.swift; sourceTree = "<group>"; };
 		9E0BABC7238D12C20081D08F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E0BABCA238D12C20081D08F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E0BABCC238D12C20081D08F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		9E0BAC0D238D26560081D08F /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		9E0BAC0E238D26560081D08F /* GameBattleship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBattleship.swift; sourceTree = "<group>"; };
 		9E0BAC0F238D26560081D08F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9E11B35D23AA105D009B1638 /* ViewControlerNewGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControlerNewGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,12 +110,13 @@
 			isa = PBXGroup;
 			children = (
 				9E0BABC3238D12C20081D08F /* AppDelegate.swift */,
-				9E0BABC5238D12C20081D08F /* ViewController.swift */,
+				9E0BABC5238D12C20081D08F /* ViewControllerGame.swift */,
 				9E0BABC7238D12C20081D08F /* Assets.xcassets */,
 				9E0BABC9238D12C20081D08F /* Main.storyboard */,
 				9E0BABCC238D12C20081D08F /* Info.plist */,
 				9E0BABCD238D12C20081D08F /* GameBattleship_Storyboard.entitlements */,
 				9E0BABF1238D1AAF0081D08F /* View_Board.swift */,
+				9E11B35D23AA105D009B1638 /* ViewControlerNewGame.swift */,
 			);
 			path = GameBattleship_Storyboard;
 			sourceTree = "<group>";
@@ -277,10 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E0BABC6238D12C20081D08F /* ViewController.swift in Sources */,
+				9E0BABC6238D12C20081D08F /* ViewControllerGame.swift in Sources */,
 				9E0BABC4238D12C20081D08F /* AppDelegate.swift in Sources */,
 				9E0BAC11238D26560081D08F /* Board.swift in Sources */,
 				9E0BAC12238D26560081D08F /* GameBattleship.swift in Sources */,
+				9E11B35E23AA105D009B1638 /* ViewControlerNewGame.swift in Sources */,
 				9E0BAC10238D26560081D08F /* OldMain.swift in Sources */,
 				9E0BABF2238D1AAF0081D08F /* View_Board.swift in Sources */,
 				9E0BAC13238D26560081D08F /* Extensions.swift in Sources */,

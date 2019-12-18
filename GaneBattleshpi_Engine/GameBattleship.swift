@@ -87,10 +87,10 @@ class GameBattleship {
     
     public func checkWhoWins()->Who? {
         if boardPlayer.isWinnerBoard() {
-            return .player
+            return .opponent
         }
         else if boardOpponent.isWinnerBoard(){
-            return .opponent
+            return .player
         }
         return nil
     }
