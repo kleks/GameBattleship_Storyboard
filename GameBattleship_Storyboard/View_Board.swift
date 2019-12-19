@@ -33,7 +33,7 @@ class View_Board: NSView {
     
     var previousDirtyRect: NSRect!
     
-    var shotClick: ((Int, Int)->Void)!
+    var shotClick: ((Int, Int, Bool)->Void)!
     @IBInspectable var BackgroundColor: NSColor = NSColor.yellow
     
     //    var PointTest: [NSPoint] = []
@@ -49,7 +49,18 @@ class View_Board: NSView {
             //            print("MYSZ in board(x,y) = (\(pointInBoard.x),\(pointInBoard.y))")
             
             canClick = false
-            shotClick(pointInBoard.x,board.Rows-1-pointInBoard.y)
+            shotClick(pointInBoard.x,board.Rows-1-pointInBoard.y, true)
+        }
+    }
+    
+    override func rightMouseDown(with event: NSEvent){
+        if canClick {
+            let pointInCustomView = convert(event.locationInWindow, from: nil)
+            let pointInBoard = (x: (Int)((pointInCustomView.x-rectBoard.origin.x)/fieldSize),
+                                y: (Int)((pointInCustomView.y-rectBoard.origin.y)/fieldSize))
+            
+            
+            shotClick(pointInBoard.x,board.Rows-1-pointInBoard.y, false)
         }
     }
     override func draw(_ dirtyRect: NSRect) {
@@ -112,7 +123,8 @@ class View_Board: NSView {
         let bezzier = NSBezierPath(rect: fieldRect)
         let colorBlue = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1) //#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         let colorRed = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        let colorYellow = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
+        let colorOrange = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+        let colorYellow = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         
         var sign: NSBezierPath? = nil
         
@@ -141,6 +153,10 @@ class View_Board: NSView {
             sign!.move(to: NSPoint(x: fieldRect.minX, y: fieldRect.maxY))
             sign!.line(to: NSPoint(x: fieldRect.maxX, y: fieldRect.minY))
             sign!.lineWidth = fieldRect.width / 10
+        case (.flagEmpty, _),(.flagShip, _):
+            colorOrange.setFill()
+            //sign = NSBezierPath(ovalIn: fieldRect.insetBy(dx: fieldRect.width/3, dy: fieldRect.height/3))
+            //sign!.lineWidth = fieldRect.width / 20
         }
         
         

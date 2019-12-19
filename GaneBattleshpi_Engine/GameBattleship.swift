@@ -46,9 +46,9 @@ class GameBattleship {
         print(String(repeating: "-", count: columns+10))
     }
     
-    public func placeShip(rowName: String, colName: String, size: Int, orientation: Board.Orientation)->Bool {
-        boardPlayer.placeShip(rowName: rowName, colName: colName, size: size, orientation: orientation)
-    }
+//    public func placeShip(rowName: String, colName: String, size: Int, orientation: Board.Orientation)->Bool {
+//        boardPlayer.placeShip(rowName: rowName, colName: colName, size: size, orientation: orientation)
+//    }
     
     public func shipsAutoSetup(who: Who)->Bool {
         var board = (who == Who.player) ? boardPlayer : boardOpponent
@@ -64,22 +64,22 @@ class GameBattleship {
         }
         return true
     }
-    public func shot(who: Who, rowNumber: Int, colNumber: Int)->Bool {
+    public func shot(who: Who, rowNumber: Int, colNumber: Int, shot: Bool)->Bool {
         if(who == .player) {
-            return boardOpponent.shot(rowNumber: rowNumber, colNumber: colNumber)
+            return boardOpponent.shot(rowNumber: rowNumber, colNumber: colNumber, shot: shot)
         }
         else {
-            return boardPlayer.shot(rowNumber: rowNumber, colNumber: colNumber)
+            return boardPlayer.shot(rowNumber: rowNumber, colNumber: colNumber, shot: shot)
         }
     }
-    public func shot(who: Who, rowName: String, colName: String)->Bool {
-        if(who == .player) {
-            return boardOpponent.shot(rowName: rowName, colName: colName)
-        }
-        else {
-            return boardPlayer.shot(rowName: rowName, colName: colName)
-        }
-    }
+//    public func shot(who: Who, rowName: String, colName: String)->Bool {
+//        if(who == .player) {
+//            return boardOpponent.shot(rowName: rowName, colName: colName)
+//        }
+//        else {
+//            return boardPlayer.shot(rowName: rowName, colName: colName)
+//        }
+//    }
     
     public func checkWhoWins()->Who? {
         if boardPlayer.isWinnerBoard() {

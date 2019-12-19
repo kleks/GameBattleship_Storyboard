@@ -31,7 +31,7 @@ class Board {
     //private var boardDict = [String:[String:CellContentType]]()
     
     enum CellContentType {
-        case empty, ship, hitEmpty, hitShip
+        case empty, ship, hitEmpty, hitShip, flagEmpty, flagShip
     }
     enum Orientation {
         case horizontal, vertical
@@ -85,8 +85,12 @@ class Board {
                     line += "_ "
                 case (.hitEmpty, _):
                     line += ". "
+                case (.flagEmpty, _):
+                    line += "? "
                 case (.hitShip, _):
                     line += "X "
+                case (.flagShip, _):
+                    line += "? "
                 }
             }
             print("| \(getRowName(rowNumber: row).leftPadding(toLength: maxRowHeaderLenght)) \(line)\(getRowName(rowNumber: row).leftPadding(toLength: maxRowHeaderLenght)) |")
@@ -139,11 +143,11 @@ class Board {
         return true
     }
     
-    public func placeShip(rowName: String, colName: String, size: Int, orientation: Orientation)->Bool {
-        let row = getRowNumber(rowNumber: rowName)
-        let col = getColNumber(colNumber: colName)
-        return placeShip(rowNumber: row, colNumber: col, size: size, orientation: orientation)
-    }
+//    public func placeShip(rowName: String, colName: String, size: Int, orientation: Orientation)->Bool {
+//        let row = getRowNumber(rowNumber: rowName)
+//        let col = getColNumber(colNumber: colName)
+//        return placeShip(rowNumber: row, colNumber: col, size: size, orientation: orientation)
+//    }
     
     private func placeShip(rowNumber: Int, colNumber: Int, size: Int, orientation: Orientation)->Bool {
         guard shipsSize.contains(size) else {
@@ -216,35 +220,56 @@ class Board {
         return true
     }
     
-    public func shot(rowName: String, colName: String)->Bool {
-        let row = getRowNumber(rowNumber: rowName)
-        let col = getColNumber(colNumber: colName)
-        return shot(rowNumber: row, colNumber: col)
-    }
+//    public func shot(rowName: String, colName: String)->Bool {
+//        let row = getRowNumber(rowNumber: rowName)
+//        let col = getColNumber(colNumber: colName)
+//        return shot(rowNumber: row, colNumber: col, shot: true)
+//    }
     
-    public func shot(rowNumber: Int, colNumber: Int)->Bool {
+    public func shot(rowNumber: Int, colNumber: Int, shot: Bool)->Bool {
         //strzał poza planszą
         guard rowNumber>=0 && rowNumber<rows && colNumber>=0 && colNumber<columns else
         {
             return true
         }
-        switch board[rowNumber][colNumber] {
-        case .empty:
-            board[rowNumber][colNumber] = .hitEmpty
-            break
-        case .ship:
-            board[rowNumber][colNumber] = .hitShip
-            return true
-        //break
-        case .hitEmpty, .hitShip:
-            break
+        if shot {
+            switch board[rowNumber][colNumber] {
+            case .empty:
+                board[rowNumber][colNumber] = .hitEmpty
+                break
+            case .ship:
+                board[rowNumber][colNumber] = .hitShip
+                return true
+            //break
+            case .hitEmpty, .hitShip, .flagShip, .flagEmpty:
+                return true
+            }
+            return false
         }
-        return false
+        else {
+            switch board[rowNumber][colNumber] {
+            case .empty:
+                board[rowNumber][colNumber] = .flagEmpty
+                break
+            case .flagEmpty:
+                board[rowNumber][colNumber] = .empty
+                break
+            case .ship:
+                board[rowNumber][colNumber] = .flagShip
+                break
+            case .flagShip:
+                board[rowNumber][colNumber] = .ship
+                break
+            case .hitEmpty, .hitShip:
+                break
+            }
+            return true
+        }
     }
     public func isWinnerBoard()->Bool {
         for row in 0..<rows {
             for col in 0..<columns {
-                if board[row][col] == .ship {
+                if board[row][col] == .ship || board[row][col] == .flagShip {
                     return false
                 }
             }

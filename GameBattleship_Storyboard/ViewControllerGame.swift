@@ -51,8 +51,8 @@ class ViewControllerGame: NSViewController {
         View_Board_Opponent.canClick = true
     }
     
-    func playerClick(_ x: Int, _ y: Int) {
-        if !myGame.shot(who: .player, rowNumber: y, colNumber: x) {
+    func playerClick(_ x: Int, _ y: Int, _ shot: Bool) {
+        if !myGame.shot(who: .player, rowNumber: y, colNumber: x, shot: shot) {
             whoseTurn = .opponent
         }
         else
@@ -63,7 +63,7 @@ class ViewControllerGame: NSViewController {
             let rowNumber = Int.random(in: 0..<rows)
             let colNumber = Int.random(in: 0..<cols)
             
-            if !myGame.shot(who: .opponent, rowNumber: rowNumber, colNumber: colNumber) {
+            if !myGame.shot(who: .opponent, rowNumber: rowNumber, colNumber: colNumber, shot: true) {
                 whoseTurn = .player
                 View_Board_Opponent.canClick = true
             }
