@@ -8,10 +8,21 @@
 
 import Cocoa
 
-@IBDesignable
+//@IBDesignable
 class View_Board: NSView {
     
-    var board: Board!
+    var realBoard: Board!
+    var board: Board! {
+        get {
+            return realBoard
+        }
+        set {
+            realBoard = newValue
+            //potrzebne przy rozpoczęciu nowej gry
+            //aby wyliczyły się nowe rozmiary pól, położenia, itp.
+            previousDirtyRect = nil
+        }
+    }
     var covered: Bool = true
     var canClick: Bool = false
     
@@ -56,7 +67,6 @@ class View_Board: NSView {
             rectBoard = dirtyRect.insetBy(dx: ((CGFloat)(dirtyRect.width)-boardWidth)/2.0,
                                           dy: ((CGFloat)(dirtyRect.height)-boardHeight)/2.0)
             previousDirtyRect = dirtyRect
-            print ("resize")
         }
         
         
