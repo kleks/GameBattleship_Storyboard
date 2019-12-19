@@ -12,27 +12,30 @@ class ViewControlerNewGame: NSViewController {
     
     @IBOutlet var TextFieldRows: NSTextField!
     @IBOutlet var TextFieldColumns: NSTextField!
+    @IBOutlet var TextFieldShips: NSTextField!
     @IBOutlet var ButtonStart: NSButton!
     
     var viewControllerGame : ViewControllerGame?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
-//        let sMask = self.view.window
-//        self.view.window?.styleMask.remove(.resizable)
-//        self.view.window?.styleMask.remove(.closable)
+        //
+        //        let sMask = self.view.window
+        //        self.view.window?.styleMask.remove(.resizable)
+        //        self.view.window?.styleMask.remove(.closable)
         
-//        self.view.window?.styleMask.remove(.)
+        //        self.view.window?.styleMask.remove(.)
         
         
         TextFieldRows.delegate = self
         TextFieldColumns.delegate = self
+        TextFieldShips.delegate = self
         
         viewControllerGame = (NSApplication.shared.mainWindow?.contentViewController as! ViewControllerGame)
         
         TextFieldRows.stringValue = String(viewControllerGame!.rows)
         TextFieldColumns.stringValue = String(viewControllerGame!.cols)
+        TextFieldShips.stringValue = String(viewControllerGame!.shipsSize.map({String($0)}).joined(separator: ","))
     }
     
     @IBAction func ButtonStart_Click(_ sender: Any) {
@@ -54,6 +57,8 @@ extension ViewControlerNewGame:NSTextFieldDelegate {
         
         let rows = Int(TextFieldRows.stringValue)
         let cols = Int(TextFieldColumns.stringValue)
+        let shipsCompactMap = TextFieldShips.stringValue.split(separator: ",").compactMap({UInt($0)})
+        let shipsMap = TextFieldShips.stringValue.split(separator: ",").map({UInt($0)})
         
         ButtonStart.isEnabled = true
         
@@ -74,5 +79,16 @@ extension ViewControlerNewGame:NSTextFieldDelegate {
             TextFieldColumns.backgroundColor = NSColor.red
             ButtonStart.isEnabled = false
         }
+        
+        if shipsCompactMap.count>=3 && shipsMap.count == shipsCompactMap.count {
+            TextFieldShips.backgroundColor = NSColor.textBackgroundColor
+            viewControllerGame!.shipsSize = shipsCompactMap.map({Int($0)})
+        }
+        else
+        {
+            TextFieldShips.backgroundColor = NSColor.red
+            ButtonStart.isEnabled = false
+        }
+
     }
 }

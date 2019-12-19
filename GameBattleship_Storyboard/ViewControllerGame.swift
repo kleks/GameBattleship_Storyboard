@@ -15,7 +15,7 @@ class ViewControllerGame: NSViewController {
     
     var rows = 10
     var cols = 10
-    var shipsSize = [1]//[4,3,3,2,2,2,1,1,1,1]
+    var shipsSize = [4,3,3,2,2,2,1,1,1,1]
 
     private var myGame: GameBattleship!
     private var whoseTurn: GameBattleship.Who = .player
@@ -25,14 +25,21 @@ class ViewControllerGame: NSViewController {
         
         View_Board_Opponent.shotClick = playerClick
         
-        prepareNewGame()
+        //prepareNewGame()
     }
     
     func prepareNewGame() {
-        myGame = GameBattleship(rows: rows, columns: cols, shipsSize: shipsSize)
-        myGame.shipsAutoSetup(who: GameBattleship.Who.player)
-        myGame.shipsAutoSetup(who: GameBattleship.Who.opponent)
+        let newGame = GameBattleship(rows: rows, columns: cols, shipsSize: shipsSize)
         
+        guard newGame.shipsAutoSetup(who: GameBattleship.Who.player) &&
+              newGame.shipsAutoSetup(who: GameBattleship.Who.opponent) else {
+                let alert = NSAlert()
+                alert.messageText = "Autosetup failed. Change parameters in \"New game\" window."
+                alert.runModal()
+                return
+        }
+        
+        myGame = newGame
         myGame.setView_Board(who: .player, viewBoard: View_Board_Player)
         myGame.setView_Board(who: .opponent, viewBoard: View_Board_Opponent)
         

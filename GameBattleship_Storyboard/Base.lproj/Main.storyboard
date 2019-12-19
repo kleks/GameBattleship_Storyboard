@@ -96,7 +96,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Game Battleship" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -118,15 +118,18 @@
             <objects>
                 <viewController title="New game" id="5SN-ge-dtm" customClass="ViewControlerNewGame" customModule="GameBattleship_Storyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="cVW-8l-KlM">
-                        <rect key="frame" x="0.0" y="0.0" width="190" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="190" height="120"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <gridView xPlacement="leading" yPlacement="center" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="tqB-rw-2wT">
-                                <rect key="frame" x="0.0" y="0.0" width="190" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="190" height="120"/>
                                 <rows>
                                     <gridRow id="HTu-Xl-Ujo"/>
-                                    <gridRow id="RzZ-bK-bHz"/>
+                                    <gridRow id="x4P-0G-UOO"/>
                                     <gridRow id="7CJ-75-Tt5"/>
+                                    <gridRow id="hLC-Mm-gmK"/>
+                                    <gridRow id="Ai9-A2-VRL"/>
+                                    <gridRow id="XaP-61-FI5"/>
                                 </rows>
                                 <columns>
                                     <gridColumn id="tEQ-20-msG"/>
@@ -135,7 +138,7 @@
                                 <gridCells>
                                     <gridCell row="HTu-Xl-Ujo" column="tEQ-20-msG" id="eIj-zO-Y1Y">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k0V-66-W8f">
-                                            <rect key="frame" x="-2" y="82" width="37" height="16"/>
+                                            <rect key="frame" x="-2" y="102" width="37" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Rows" id="XQS-Gt-mxd">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -145,7 +148,7 @@
                                     </gridCell>
                                     <gridCell row="HTu-Xl-Ujo" column="MFS-lF-7rw" id="fzC-Sc-C1g">
                                         <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qhb-Mp-Zfe">
-                                            <rect key="frame" x="66" y="79" width="100" height="21"/>
+                                            <rect key="frame" x="66" y="99" width="100" height="21"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="3J4-k7-XHr">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -153,20 +156,20 @@
                                             </textFieldCell>
                                         </textField>
                                     </gridCell>
-                                    <gridCell row="RzZ-bK-bHz" column="tEQ-20-msG" id="4na-4O-zkO">
-                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bZK-jk-r2O">
-                                            <rect key="frame" x="-2" y="55" width="58" height="16"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Columns" id="EQS-ve-CoF">
+                                    <gridCell row="x4P-0G-UOO" column="tEQ-20-msG" id="atV-Fe-JCn">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g9P-3H-aqx">
+                                            <rect key="frame" x="-2" y="75" width="58" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Columns" id="a9s-Cq-9I9">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                     </gridCell>
-                                    <gridCell row="RzZ-bK-bHz" column="MFS-lF-7rw" id="FcL-F0-XH3">
-                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dZK-oI-p2a">
-                                            <rect key="frame" x="66" y="52" width="100" height="21"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="pgZ-e3-yYU">
+                                    <gridCell row="x4P-0G-UOO" column="MFS-lF-7rw" id="D0U-nf-Fuk">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CM5-6f-dnd">
+                                            <rect key="frame" x="66" y="72" width="100" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="9Eg-jO-Nxm">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -174,9 +177,31 @@
                                         </textField>
                                     </gridCell>
                                     <gridCell row="7CJ-75-Tt5" column="tEQ-20-msG" id="aDp-jL-I7h"/>
-                                    <gridCell row="7CJ-75-Tt5" column="MFS-lF-7rw" yPlacement="center" id="UB9-dJ-v4H">
+                                    <gridCell row="7CJ-75-Tt5" column="MFS-lF-7rw" yPlacement="center" id="UB9-dJ-v4H"/>
+                                    <gridCell row="hLC-Mm-gmK" column="tEQ-20-msG" id="Vdl-UY-g2v">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2A6-5g-MDh">
+                                            <rect key="frame" x="-2" y="42" width="38" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Ships" id="kph-vx-Nl6">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="hLC-Mm-gmK" column="MFS-lF-7rw" id="0VH-a5-z6j">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zxX-p4-9nJ">
+                                            <rect key="frame" x="66" y="39" width="100" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="ZHK-T4-gXW">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="Ai9-A2-VRL" column="tEQ-20-msG" id="XkX-lW-eeb"/>
+                                    <gridCell row="Ai9-A2-VRL" column="MFS-lF-7rw" id="4lG-Ef-Is3">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3VB-YP-hKd">
-                                            <rect key="frame" x="60" y="6" width="136" height="32"/>
+                                            <rect key="frame" x="60" y="2" width="136" height="32"/>
                                             <buttonCell key="cell" type="push" title="Start new game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UkQ-1L-JRE">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -186,6 +211,8 @@
                                             </connections>
                                         </button>
                                     </gridCell>
+                                    <gridCell row="XaP-61-FI5" column="tEQ-20-msG" id="ozw-7b-yxB"/>
+                                    <gridCell row="XaP-61-FI5" column="MFS-lF-7rw" id="fcJ-k0-HD6"/>
                                 </gridCells>
                             </gridView>
                         </subviews>
@@ -198,8 +225,9 @@
                     </view>
                     <connections>
                         <outlet property="ButtonStart" destination="3VB-YP-hKd" id="oiD-nS-Tps"/>
-                        <outlet property="TextFieldColumns" destination="dZK-oI-p2a" id="H8D-Ga-yyJ"/>
+                        <outlet property="TextFieldColumns" destination="CM5-6f-dnd" id="27j-rq-RK4"/>
                         <outlet property="TextFieldRows" destination="Qhb-Mp-Zfe" id="cJg-lD-alK"/>
+                        <outlet property="TextFieldShips" destination="zxX-p4-9nJ" id="1GG-LB-7cD"/>
                     </connections>
                 </viewController>
                 <customObject id="jyi-JR-7sv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

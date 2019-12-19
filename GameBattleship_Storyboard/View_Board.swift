@@ -58,7 +58,9 @@ class View_Board: NSView {
         let background = NSBezierPath(rect: dirtyRect)
         BackgroundColor.setFill()
         background.fill()
-        
+        guard board != nil else {
+            return
+        }
         if dirtyRect != previousDirtyRect {
             fieldSize = min((CGFloat)(dirtyRect.width)/(CGFloat)(board.Columns),
                             (CGFloat)(dirtyRect.height)/(CGFloat)(board.Rows))

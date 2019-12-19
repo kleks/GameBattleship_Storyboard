@@ -110,13 +110,13 @@
 			isa = PBXGroup;
 			children = (
 				9E0BABC3238D12C20081D08F /* AppDelegate.swift */,
-				9E0BABC5238D12C20081D08F /* ViewControllerGame.swift */,
-				9E0BABC7238D12C20081D08F /* Assets.xcassets */,
 				9E0BABC9238D12C20081D08F /* Main.storyboard */,
+				9E0BABC5238D12C20081D08F /* ViewControllerGame.swift */,
+				9E11B35D23AA105D009B1638 /* ViewControlerNewGame.swift */,
+				9E0BABF1238D1AAF0081D08F /* View_Board.swift */,
+				9E0BABC7238D12C20081D08F /* Assets.xcassets */,
 				9E0BABCC238D12C20081D08F /* Info.plist */,
 				9E0BABCD238D12C20081D08F /* GameBattleship_Storyboard.entitlements */,
-				9E0BABF1238D1AAF0081D08F /* View_Board.swift */,
-				9E11B35D23AA105D009B1638 /* ViewControlerNewGame.swift */,
 			);
 			path = GameBattleship_Storyboard;
 			sourceTree = "<group>";

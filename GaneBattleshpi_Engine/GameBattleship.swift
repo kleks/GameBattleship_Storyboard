@@ -50,23 +50,19 @@ class GameBattleship {
         boardPlayer.placeShip(rowName: rowName, colName: colName, size: size, orientation: orientation)
     }
     
-    public func shipsAutoSetup(who: Who) {
-        if(who == Who.player) {
-            var i=1
-            while !boardPlayer.shipsAutoSetup(){
-                boardPlayer = Board(rows: self.rows, columns: self.columns, shipsSize: self.shipsSize)
-                print ("powtówne losowanie player \(i)")
-                i+=1
+    public func shipsAutoSetup(who: Who)->Bool {
+        var board = (who == Who.player) ? boardPlayer : boardOpponent
+        
+        var i=1
+        while !(board!.shipsAutoSetup()) {
+            board = Board(rows: self.rows, columns: self.columns, shipsSize: self.shipsSize)
+            print ("powtówne losowanie \(Who.player) \(i)")
+            i+=1
+            guard i<10 else {
+                return false
             }
         }
-        else {
-            var i=1
-            while !boardOpponent.shipsAutoSetup(){
-                boardOpponent = Board(rows: self.rows, columns: self.columns, shipsSize: self.shipsSize)
-                print ("powtórne losowanie player \(i)")
-                i+=1
-            }
-        }
+        return true
     }
     public func shot(who: Who, rowNumber: Int, colNumber: Int)->Bool {
         if(who == .player) {
